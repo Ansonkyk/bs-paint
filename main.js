@@ -114,8 +114,18 @@ addEventListener('mouseup', function(){clicked = false;})
 addEventListener('mouseup', function(){clicked = true;})
 
 blocks.forEach(function(square){
-square.addEventListener( 'mousedown' , draw(square))//draw on click
-square.addEventListener('mouseover', draw(square))})//draw on drag
+square.addEventListener( 'mousedown' , function(){
+  if(clicked === true){
+    square.className = `square ${colorPicked}`;
+    console.log('Test')
+}
+})//draw on click
+square.addEventListener('mouseover', function(){
+  if(clicked === true){
+    square.className = `square ${colorPicked}`;
+    console.log('Test')
+}
+})})//draw on drag
 clear.addEventListener('click', function(){
   blocks.forEach(function(square){
         square.className = 'square color-9'
@@ -123,7 +133,12 @@ clear.addEventListener('click', function(){
 })
 
 
-function draw(square){if(clicked === true){square.className = `square ${colorPicked}`;}}
+function draw(square){
+  if(clicked === true){
+    square.className = `square ${colorPicked}`;
+    console.log('Test')
+}
+}
 /**************************
  * WIRING IT ALL TOGETHER *
 **************************/
